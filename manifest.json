@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Logging Console",
+  "version": "1.0",
+  "description": "A console that logs all the messages",
+  "icons": {
+    "128": "console.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost/*", "https://localhost/*"],
+      "js": ["jsonTree.js", "jsonView.js", "content.js"],
+      "css": ["jsonTree.css", "jsonView.css", "styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "permissions": ["activeTab", "scripting", "sidePanel"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injected-script.js",
+        "jsonView.js",
+        "json-viewer.js",
+        "libs/json-viewer/browser.min.js",
+        "date-fns.js",
+        "https://cdn.jsdelivr.net/*"
+      ],
+      "matches": ["http://localhost/*", "https://localhost/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  }
+}
