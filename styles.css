@@ -24,6 +24,10 @@
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid #cecece;
   color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
 }
 
 .console-logs {
@@ -35,7 +39,6 @@
 }
 
 .log {
-  /* font-family: 'Inter', sans-serif; */
   font-family: monospace;
   font-size: 13px;
   padding: 0.2rem 0;
@@ -47,4 +50,40 @@
 code {
   font-size: 13px;
   color: #333;
+}
+
+.json-viewer {
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.action-btn {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.clear-console-btn {
+  margin-left: auto;
+}
+
+.bubble-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.bubble-button-hidden {
+  display: none;
 }
