@@ -2,7 +2,7 @@ const root = document.querySelector('body');
 if (root) {
   const consoleContainer = document.createElement('div');
   consoleContainer.classList.add('overlay');
-
+  consoleContainer.style.display = 'none';
   const header = document.createElement('div');
   // header.textContent = 'Logging Console';
   header.classList.add('console-header');
