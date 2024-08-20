@@ -22,7 +22,7 @@ if (root) {
   consoleContainer.appendChild(header);
   consoleContainer.appendChild(logs);
   root.appendChild(consoleContainer);
-  // root.appendChild(createBubbleButton(consoleContainer));
+  root.appendChild(createBubbleButton(consoleContainer));
 }
 
 // jsonViewer.showJSON(jsonData);
@@ -151,14 +151,29 @@ function XIcon() {
     `;
 }
 
+function TerminalIcon() {
+  return `
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'>
+      <polyline points='4 17 10 11 4 5' />
+      <line x1='12' x2='20' y1='19' y2='19' />
+    </svg>
+    `;
+}
+
 function createBubbleButton(overlay) {
-  const button = document.createElement('button');
+  const button = document.createElement('div');
+  button.innerHTML = TerminalIcon();
   button.classList.add('bubble-button');
-  if (overlay.style.display === 'none') {
-    button.classList.add('bubble-button-hidden');
-  } else {
-    button.classList.remove('bubble-button-hidden');
-  }
+  button.classList.add('action-btn');
   button.onclick = function () {
     if (overlay) {
       overlay.style.display =
