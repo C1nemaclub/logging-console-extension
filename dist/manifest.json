@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "Logging Console Vite Test HMR",
+  "version": "1.0",
+  "description": "A console that logs all the messages",
+  "icons": {
+    "128": "console.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/content-script-loader.jsonView.js.js",
+        "assets/content-script-loader.content.js.js"
+      ],
+      "matches": [
+        "http://localhost/*",
+        "https://localhost/*"
+      ],
+      "style": [
+        "jsonView.css",
+        "styles.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "sidePanel",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "http://localhost/*",
+        "https://localhost/*"
+      ],
+      "resources": [
+        "injected-script.js",
+        "https://cdn.jsdelivr.net/*"
+      ],
+      "use_dynamic_url": false
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "**/*",
+        "*"
+      ],
+      "use_dynamic_url": true
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  }
+}

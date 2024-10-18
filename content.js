@@ -1,3 +1,7 @@
+import JSONViewer from './jsonView';
+import './jsonView.css';
+import './styles.css';
+
 const root = document.querySelector('body');
 if (root) {
   const consoleContainer = document.createElement('div');
